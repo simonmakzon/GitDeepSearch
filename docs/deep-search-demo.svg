@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460">
+  <defs>
+    <style>
+      * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+      .step { opacity: 0; }
+      .step-1 { animation: stepIn 0.4s ease 0.5s forwards; }
+      .step-2 { animation: stepIn 0.4s ease 1.4s forwards; }
+      .step-3 { animation: stepIn 0.4s ease 2.3s forwards; }
+      .step-4 { animation: stepIn 0.4s ease 3.2s forwards; }
+
+      @keyframes stepIn {
+        from{opacity:0;transform:translateX(-8px)}
+        to{opacity:1;transform:translateX(0)}
+      }
+
+      .dot-pending { fill: #e0e7ff; }
+      .dot-active { fill: #4f46e5; animation: dotPulse 1s ease infinite; }
+      .dot-done { fill: #10b981; }
+
+      @keyframes dotPulse {
+        0%,100%{opacity:1} 50%{opacity:0.5}
+      }
+
+      .query-reveal {
+        clip-path: inset(0 100% 0 0);
+        animation: revealText 1.5s steps(35,end) 0.2s forwards;
+      }
+      @keyframes revealText {
+        from{clip-path:inset(0 100% 0 0)}
+        to{clip-path:inset(0 0% 0 0)}
+      }
+
+      .results-fade { opacity:0; animation: fadeUp 0.6s ease 3.8s forwards; }
+      @keyframes fadeUp {
+        from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)}
+      }
+
+      .progress-bar {
+        stroke-dasharray: 0 200;
+        animation: progressFill 3s ease 0.5s forwards;
+        stroke: #4f46e5;
+        stroke-width: 3;
+        fill: none;
+        stroke-linecap: round;
+      }
+      @keyframes progressFill {
+        to { stroke-dasharray: 200 200; }
+      }
+    </style>
+    <clipPath id="clip2">
+      <rect width="800" height="460" rx="16"/>
+    </clipPath>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#clip2)">
+    <rect width="800" height="460" fill="#eef2ff"/>
+
+    <!-- Grid -->
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dde6ff" stroke-width="0.5"/>
+    </pattern>
+    <rect width="800" height="460" fill="url(#grid2)" opacity="0.4"/>
+
+    <!-- Navbar -->
+    <rect width="800" height="52" fill="rgba(255,255,255,0.9)"/>
+    <rect width="800" height="1" y="52" fill="#e0e7ff"/>
+    <text x="32" y="31" font-size="14" font-weight="700" fill="#4f46e5" letter-spacing="-0.5">GitDeepSearch</text>
+    <rect x="718" y="18" width="64" height="28" rx="14" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+    <text x="750" y="31" font-size="11" font-weight="500" fill="#6b7280" text-anchor="middle">GitHub</text>
+
+    <!-- Page header -->
+    <rect x="310" y="68" width="180" height="22" rx="11" fill="url(#purpleGrad)"/>
+    <text x="400" y="83" font-size="10" font-weight="600" fill="white" text-anchor="middle" letter-spacing="0.5">✦ Deep Research Mode</text>
+    <text x="400" y="116" font-size="24" font-weight="700" fill="#1e1b4b" text-anchor="middle" letter-spacing="-0.8">Deep search</text>
+    <text x="400" y="136" font-size="12" fill="#6b7280" text-anchor="middle">Multi-strategy GitHub research for harder-to-find repositories.</text>
+
+    <!-- Search bar -->
+    <rect x="80" y="152" width="580" height="42" rx="12" fill="white" stroke="#4f46e5" stroke-width="2"/>
+    <circle cx="104" cy="173" r="7" fill="none" stroke="#9ca3af" stroke-width="1.8"/>
+    <line x1="109" y1="178" x2="113" y2="182" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="122" y="177" font-size="13" fill="#1e1b4b" class="query-reveal">analytics dashboard with AI in Python</text>
+
+    <!-- Search button -->
+    <rect x="668" y="152" width="54" height="42" rx="12" fill="#4f46e5"/>
+    <text x="695" y="177" font-size="11" font-weight="600" fill="white" text-anchor="middle">Go</text>
+
+    <!-- Progress panel -->
+    <rect x="80" y="210" width="380" height="170" rx="12" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+    <text x="100" y="235" font-size="12" font-weight="600" fill="#1e1b4b">Running deep search...</text>
+
+    <!-- Progress bar track -->
+    <rect x="100" y="244" width="340" height="4" rx="2" fill="#e0e7ff"/>
+    <!-- Progress bar fill -->
+    <line x1="100" y1="246" x2="300" y2="246" stroke="#4f46e5" stroke-width="4" stroke-linecap="round" class="progress-bar"/>
+
+    <!-- Step 1 -->
+    <g class="step step-1">
+      <circle cx="112" cy="272" r="9" fill="#10b981"/>
+      <text x="112" y="276" font-size="9" font-weight="700" fill="white" text-anchor="middle">✓</text>
+      <text x="128" y="276" font-size="12" fill="#374151">Searching by relevance...</text>
+      <text x="340" y="276" font-size="11" fill="#10b981" font-weight="600">12 found</text>
+    </g>
+
+    <!-- Step 2 -->
+    <g class="step step-2">
+      <circle cx="112" cy="300" r="9" fill="#10b981"/>
+      <text x="112" y="304" font-size="9" font-weight="700" fill="white" text-anchor="middle">✓</text>
+      <text x="128" y="304" font-size="12" fill="#374151">Searching by stars...</text>
+      <text x="340" y="304" font-size="11" fill="#10b981" font-weight="600">8 new</text>
+    </g>
+
+    <!-- Step 3 -->
+    <g class="step step-3">
+      <circle cx="112" cy="328" r="9" fill="#10b981"/>
+      <text x="112" y="332" font-size="9" font-weight="700" fill="white" text-anchor="middle">✓</text>
+      <text x="128" y="332" font-size="12" fill="#374151">Searching by recent activity...</text>
+      <text x="340" y="332" font-size="11" fill="#10b981" font-weight="600">5 new</text>
+    </g>
+
+    <!-- Step 4 -->
+    <g class="step step-4">
+      <circle cx="112" cy="356" r="9" fill="#4f46e5" style="animation: dotPulse 1s ease infinite"/>
+      <text x="112" y="360" font-size="9" font-weight="700" fill="white" text-anchor="middle">◉</text>
+      <text x="128" y="360" font-size="12" fill="#4f46e5" font-weight="500">Searching in README content...</text>
+    </g>
+
+    <!-- Stats panel on the right -->
+    <rect x="480" y="210" width="280" height="170" rx="12" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+    <text x="500" y="235" font-size="12" font-weight="600" fill="#1e1b4b">Search Statistics</text>
+
+    <text x="500" y="264" font-size="11" fill="#6b7280">Strategies run</text>
+    <text x="730" y="264" font-size="13" font-weight="700" fill="#4f46e5" text-anchor="end">4</text>
+
+    <text x="500" y="290" font-size="11" fill="#6b7280">Repositories found</text>
+    <text x="730" y="290" font-size="13" font-weight="700" fill="#4f46e5" text-anchor="end">25</text>
+
+    <text x="500" y="316" font-size="11" fill="#6b7280">Duplicates removed</text>
+    <text x="730" y="316" font-size="13" font-weight="700" fill="#10b981" text-anchor="end">9</text>
+
+    <text x="500" y="342" font-size="11" fill="#6b7280">Unique results</text>
+    <text x="730" y="342" font-size="13" font-weight="700" fill="#1e1b4b" text-anchor="end">16</text>
+
+    <!-- Divider -->
+    <line x1="500" y1="354" x2="740" y2="354" stroke="#e0e7ff" stroke-width="1"/>
+    <text x="500" y="372" font-size="11" fill="#6b7280">Sorted by</text>
+    <rect x="650" y="360" width="80" height="20" rx="10" fill="#eef2ff"/>
+    <text x="690" y="374" font-size="10" fill="#4f46e5" text-anchor="middle" font-weight="600">★ Stars</text>
+
+    <!-- Results preview -->
+    <g class="results-fade">
+      <rect x="80" y="394" width="680" height="54" rx="12" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+      <text x="100" y="416" font-size="12" font-weight="600" fill="#4f46e5">apache/superset</text>
+      <rect x="620" y="406" width="62" height="18" rx="9" fill="#fef3c7"/>
+      <text x="651" y="419" font-size="10" font-weight="600" fill="#d97706" text-anchor="middle">★ 61.2k</text>
+      <rect x="690" y="406" width="62" height="18" rx="9" fill="#dbeafe"/>
+      <text x="721" y="419" font-size="10" font-weight="600" fill="#3b82f6" text-anchor="middle">Python</text>
+      <text x="100" y="434" font-size="11" fill="#9ca3af">Apache Superset is a Data Visualization and Data Exploration Platform</text>
+    </g>
+
+    <!-- Bottom fade -->
+    <defs>
+      <linearGradient id="fade2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#eef2ff" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#eef2ff" stop-opacity="0.85"/>
+      </linearGradient>
+    </defs>
+    <rect y="400" width="800" height="60" fill="url(#fade2)"/>
+  </g>
+
+  <rect width="800" height="460" rx="16" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+</svg>

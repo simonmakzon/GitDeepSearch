@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+      .bg { fill: #eef2ff; }
+      .nav { fill: rgba(255,255,255,0.9); }
+      .card { fill: #ffffff; rx: 12; }
+      .primary { fill: #4f46e5; }
+      .text { fill: #1e1b4b; }
+      .muted { fill: #6b7280; }
+      .light { fill: #9ca3af; }
+      .border { stroke: #e0e7ff; stroke-width: 1.5; fill: none; }
+      .border-card { stroke: #e0e7ff; stroke-width: 1.5; }
+
+      /* Typing animation */
+      .cursor {
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+      /* Text reveal animations */
+      .type-text {
+        animation: typeIn 0.05s steps(1) forwards;
+      }
+
+      /* Fade in animations */
+      .fade-in-1 { opacity: 0; animation: fadeIn 0.4s ease 0.5s forwards; }
+      .fade-in-2 { opacity: 0; animation: fadeIn 0.4s ease 1s forwards; }
+      .fade-in-3 { opacity: 0; animation: fadeIn 0.4s ease 1.5s forwards; }
+      .fade-in-4 { opacity: 0; animation: fadeIn 0.4s ease 2s forwards; }
+      .fade-in-5 { opacity: 0; animation: fadeIn 0.4s ease 2.4s forwards; }
+      .fade-in-6 { opacity: 0; animation: fadeIn 0.4s ease 2.8s forwards; }
+
+      @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+      /* Search box focus */
+      .search-ring {
+        stroke: #c7d2fe;
+        stroke-width: 1.5;
+        fill: white;
+        animation: searchFocus 0.3s ease 0.2s forwards;
+      }
+      @keyframes searchFocus {
+        to { stroke: #4f46e5; filter: drop-shadow(0 0 6px rgba(79,70,229,0.2)); }
+      }
+
+      /* Typing text animation */
+      .query-text {
+        clip-path: inset(0 100% 0 0);
+        animation: revealText 1.8s steps(40, end) 0.4s forwards;
+      }
+      @keyframes revealText {
+        from { clip-path: inset(0 100% 0 0); }
+        to { clip-path: inset(0 0% 0 0); }
+      }
+
+      /* Button pulse */
+      .search-btn {
+        animation: btnPulse 0.3s ease 2.3s both;
+      }
+      @keyframes btnPulse {
+        0%{transform:scale(1)} 50%{transform:scale(0.96)} 100%{transform:scale(1)}
+      }
+
+      /* Star shimmer */
+      .star-badge { fill: #fef3c7; }
+      .star-icon { fill: #f59e0b; }
+
+      /* Slide up results */
+      .results-container {
+        opacity: 0;
+        animation: slideUp 0.5s cubic-bezier(0.16,1,0.3,1) 2.5s forwards;
+      }
+      @keyframes slideUp {
+        from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)}
+      }
+
+      /* Language dot pulse */
+      .lang-dot-py { fill: #3572A5; }
+      .lang-dot-ts { fill: #3178c6; }
+      .lang-dot-js { fill: #f1e05a; }
+
+      /* Badge AI */
+      .badge-ai { fill: url(#aiGrad); }
+
+      /* Tab active */
+      .tab-active { fill: #eef2ff; }
+      .tab-active-text { fill: #4f46e5; }
+
+      /* Result count */
+      .count-text {
+        opacity: 0;
+        animation: fadeIn 0.3s ease 2.8s forwards;
+      }
+
+      /* Hover shimmer on card 1 */
+      .card1-hover {
+        animation: cardHover 0.3s ease 3.2s both;
+      }
+      @keyframes cardHover {
+        0%{filter:none} 50%{filter:drop-shadow(0 4px 12px rgba(79,70,229,0.12))} 100%{filter:none}
+      }
+    </style>
+    <linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <clipPath id="mainClip">
+      <rect width="800" height="520" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <g clip-path="url(#mainClip)">
+    <rect width="800" height="520" fill="#eef2ff"/>
+
+    <!-- Subtle grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dde6ff" stroke-width="0.5"/>
+    </pattern>
+    <rect width="800" height="520" fill="url(#grid)" opacity="0.5"/>
+
+    <!-- Navbar -->
+    <rect width="800" height="52" fill="rgba(255,255,255,0.85)"/>
+    <rect width="800" height="1" y="52" fill="#e0e7ff"/>
+
+    <!-- Logo -->
+    <circle cx="26" cy="26" r="10" fill="#4f46e5" opacity="0.15"/>
+    <circle cx="24" cy="24" r="5" fill="none" stroke="#4f46e5" stroke-width="1.8"/>
+    <line x1="28" y1="28" x2="32" y2="32" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="42" y="31" font-size="14" font-weight="700" fill="#4f46e5" letter-spacing="-0.5">GitDeepSearch</text>
+
+    <!-- Nav links -->
+    <text x="650" y="31" font-size="12" font-weight="500" fill="#9ca3af">Quick</text>
+    <text x="690" y="31" font-size="12" font-weight="500" fill="#4f46e5">Deep</text>
+    <rect x="718" y="18" width="64" height="28" rx="14" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+    <text x="750" y="31" font-size="11" font-weight="500" fill="#6b7280" text-anchor="middle">GitHub</text>
+
+    <!-- Page title area -->
+    <rect x="340" y="68" width="120" height="22" rx="11" fill="url(#aiGrad)"/>
+    <text x="400" y="83" font-size="10" font-weight="600" fill="white" text-anchor="middle" letter-spacing="0.5">✦ AI-Powered</text>
+
+    <text x="400" y="122" font-size="28" font-weight="700" fill="#1e1b4b" text-anchor="middle" letter-spacing="-1">AI GitHub Search</text>
+    <text x="400" y="145" font-size="13" fill="#6b7280" text-anchor="middle">Find codebases and developers using natural language.</text>
+
+    <!-- Mode cards -->
+    <g class="fade-in-1">
+      <!-- Quick Search Card -->
+      <rect x="140" y="162" width="220" height="110" rx="12" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+      <rect x="197" y="178" width="40" height="40" rx="8" fill="#eef2ff"/>
+      <circle cx="213" cy="195" r="7" fill="none" stroke="#4f46e5" stroke-width="2"/>
+      <line x1="218" y1="200" x2="222" y2="204" stroke="#4f46e5" stroke-width="2" stroke-linecap="round"/>
+      <text x="217" y="232" font-size="13" font-weight="600" fill="#1e1b4b" text-anchor="middle">Quick search</text>
+      <text x="217" y="248" font-size="10" fill="#9ca3af" text-anchor="middle">Fast natural-language</text>
+      <text x="217" y="260" font-size="10" fill="#9ca3af" text-anchor="middle">GitHub search</text>
+    </g>
+
+    <g class="fade-in-2">
+      <!-- Deep Search Card - highlighted -->
+      <rect x="380" y="162" width="220" height="110" rx="12" fill="white" stroke="#4f46e5" stroke-width="2"/>
+      <rect x="437" y="178" width="40" height="40" rx="8" fill="#eef2ff"/>
+      <!-- Telescope icon -->
+      <line x1="450" y1="206" x2="465" y2="193" stroke="#4f46e5" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="466" cy="192" rx="6" ry="4" fill="none" stroke="#4f46e5" stroke-width="1.8" transform="rotate(-30,466,192)"/>
+      <line x1="455" y1="206" x2="452" y2="210" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round"/>
+      <text x="457" y="232" font-size="13" font-weight="600" fill="#1e1b4b" text-anchor="middle">Deep search</text>
+      <text x="457" y="248" font-size="10" fill="#9ca3af" text-anchor="middle">Multi-strategy research</text>
+      <text x="457" y="260" font-size="10" fill="#9ca3af" text-anchor="middle">for harder finds</text>
+    </g>
+
+    <!-- Divider with arrow -->
+    <g class="fade-in-3">
+      <line x1="400" y1="290" x2="400" y2="310" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <polygon points="395,308 405,308 400,316" fill="#c7d2fe"/>
+    </g>
+
+    <!-- Search interface -->
+    <g class="fade-in-3">
+      <text x="400" y="348" font-size="20" font-weight="700" fill="#1e1b4b" text-anchor="middle" letter-spacing="-0.5">Quick search</text>
+      <text x="400" y="366" font-size="11" fill="#6b7280" text-anchor="middle">Fast natural-language GitHub search for repositories and people.</text>
+    </g>
+
+    <!-- Search bar -->
+    <g class="fade-in-4">
+      <rect x="80" y="376" width="580" height="44" rx="12" class="search-ring"/>
+      <!-- Search icon -->
+      <circle cx="104" cy="398" r="7" fill="none" stroke="#9ca3af" stroke-width="1.8"/>
+      <line x1="109" y1="403" x2="113" y2="407" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"/>
+
+      <!-- Typing text -->
+      <text x="122" y="402" font-size="13" fill="#1e1b4b" class="query-text">fitness mobile app in Flutter with beautiful UI</text>
+
+      <!-- Cursor -->
+      <rect x="122" y="390" width="1.5" height="16" fill="#4f46e5" class="cursor" style="animation-delay: 2.2s"/>
+
+      <!-- Search button -->
+      <rect x="618" y="376" width="42" height="44" rx="12" fill="#4f46e5" class="search-btn"/>
+      <circle cx="632" cy="396" r="5.5" fill="none" stroke="white" stroke-width="1.8"/>
+      <line x1="636" y1="400" x2="640" y2="404" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Tabs -->
+    <g class="fade-in-4">
+      <rect x="80" y="430" width="102" height="30" rx="15" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+      <text x="131" y="449" font-size="11" font-weight="600" fill="#4f46e5" text-anchor="middle">⊙ Repositories</text>
+      <rect x="192" y="430" width="72" height="30" rx="15" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+      <text x="228" y="449" font-size="11" font-weight="500" fill="#9ca3af" text-anchor="middle">👤 People</text>
+    </g>
+
+    <!-- Results count -->
+    <text x="80" y="480" font-size="11" fill="#9ca3af" class="count-text">About 12,847 results — page 1 of 100</text>
+
+    <!-- Result cards -->
+    <g class="results-container">
+      <!-- Result 1 -->
+      <rect x="80" y="488" width="680" height="2" rx="1" fill="#e0e7ff"/>
+
+      <!-- Decorative result preview (compressed) -->
+      <rect x="80" y="494" width="680" height="1" rx="1" fill="#f0f4ff" opacity="0.8"/>
+    </g>
+
+    <!-- Floating stats badges -->
+    <g class="fade-in-5">
+      <rect x="600" y="430" width="60" height="22" rx="11" fill="#fef3c7"/>
+      <text x="630" y="444" font-size="10" font-weight="600" fill="#d97706" text-anchor="middle">★ 8.2k</text>
+    </g>
+
+    <g class="fade-in-6">
+      <rect x="668" y="430" width="52" height="22" rx="11" fill="#dcfce7"/>
+      <text x="694" y="444" font-size="10" font-weight="600" fill="#16a34a" text-anchor="middle">Dart</text>
+    </g>
+
+    <!-- Bottom gradient overlay -->
+    <defs>
+      <linearGradient id="fadeBot" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#eef2ff" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#eef2ff" stop-opacity="0.9"/>
+      </linearGradient>
+    </defs>
+    <rect y="440" width="800" height="80" fill="url(#fadeBot)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="800" height="520" rx="16" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+</svg>
